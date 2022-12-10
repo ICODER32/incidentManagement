@@ -1,0 +1,36 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('partials/navbar'); -%>
+            <form method="post" action="/api/register">
+                <h2>Register</h2>
+
+                <div class="mb-3 mt-5">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input name="firstName" type="text" required="true" class="form-control" id="firstName"
+                        aria-describedby="firstName">
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input name="lastName" type="text" required="true" class="form-control" id="lastName"
+                        aria-describedby="firstName">
+                </div>
+                <div class="mb-3 ">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" type="text" required="true" class="form-control" id="email"
+                        aria-describedby="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="cpassword" class="form-label">Confirm Password</label>
+                    <input name="cpassword" type="password" required="true" class="form-control" id="cpassword"
+                        aria-describedby="cpassword">
+                </div>
+                <button type="submit" class="btn btn-primary">Create Now</button>
+            </form>
+
+            <%- include('partials/footer'); -%>
+    </div>

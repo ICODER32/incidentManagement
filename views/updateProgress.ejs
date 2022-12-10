@@ -1,0 +1,22 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('partials/navbar'); -%>
+            <form action="/api/updateStatus/<%= id %>" method="post">
+                <h2>Update Status</h2>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Choose Status</label>
+                    <select name="status" class="form-control" id="status">
+                        <option value="active">In progress</option>
+                        <option value="dispatched">Dispatch</option>
+                        <option value="closed">Close</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="narrative" class="form-label">Update Narrative</label>
+                    <textarea name="narrative" type="text" class="form-control" id="narrative"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            <%- include('partials/footer'); -%>
+    </div>

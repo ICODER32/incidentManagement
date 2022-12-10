@@ -1,0 +1,38 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <%- include('partials/navbar'); -%>
+
+            <div>
+
+                <h4>Edit Records</h4>
+
+                <form action="/api/edit/<%= data._id %>" method="post">
+                    <div class="mb-3 mt-5">
+                        <label for="incidentName" class="form-label">Incident Name</label>
+                        <input value="<%= data.name %>" name="name" type="text" class="form-control" id="incidentName"
+                            aria-describedby="incidentName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="incidentType" class="form-label">Incident Type</label>
+                        <input value="<%= data.type %>" name="type" type="text" class="form-control" id="incidentType">
+                    </div>
+                    <div class="mb-3">
+                        <label for="incidentPlace" class="form-label">Incident Place</label>
+                        <input value="<%= data.place %>" name="place" type="text" class="form-control"
+                            id="incidentPlace">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Incident Description</label>
+                        <textarea value="<%= data.description %>" name="description" type="text" class="form-control"
+                            id="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="incidentDate" class="form-label">Incident Place</label>
+                        <input value="<%= data.date %>" name="date" type="date" class="form-control" id="incidentDate">
+                    </div>
+
+                    <button type="submit" class="btn mb-5 btn-primary">Update</button>
+                </form>
+
+                <%- include('partials/footer'); -%>

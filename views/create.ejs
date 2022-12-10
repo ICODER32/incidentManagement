@@ -1,0 +1,41 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <%- include('partials/navbar'); -%>
+            <form action="/api/create" method="post">
+                <h2>Create an Incident</h2>
+                <div class="mb-3 mt-5">
+                    <label for="incidentName" class="form-label">Incident Name</label>
+                    <input name="name" type="text" class="form-control" id="incidentName"
+                        aria-describedby="incidentName">
+                </div>
+                <div class="mb-3">
+                    <label for="incidentType" class="form-label">Incident Type</label>
+                    <input name="type" type="text" class="form-control" id="incidentType">
+                </div>
+                <div class="mb-3">
+                    <label for="incidentPlace" class="form-label">Incident Place</label>
+                    <input name="place" type="text" class="form-control" id="incidentPlace">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Incident Description</label>
+                    <textarea name="description" type="text" class="form-control" id="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="priority" class="form-label">Incident Priority</label>
+                    <select name="priority" class="form-control" id="priority">
+                        <option value="high">High</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="incidentDate" class="form-label">Incident Date</label>
+                    <input name="date" type="date" class="form-control" id="incidentDate">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Insert to Record</button>
+            </form>
+
+            <%- include('partials/footer'); -%>
+    </div>

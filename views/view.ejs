@@ -1,0 +1,163 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <%- include('partials/navbar'); -%>
+
+            <div>
+
+                <h1 class="mt-5">
+                    <%= title %>
+                </h1>
+                <% if (allrecord) { %>
+                    <a href="/view" class="btn btn-primary">View Active Records</a>
+                    <%} else { %>
+                        <a href="/viewAll" class="btn btn-primary">View All Records</a>
+                        <% } %>
+                            <table class="table w-100">
+                                <thead>
+                                    <tr>
+                                        <th class="light" scope="col">Serial</th>
+                                        <th class="light" scope="col">Title</th>
+                                        <th class="light" scope="col">Type</th>
+                                        <th class="light" scope="col">Place</th>
+                                        <th class="light" scope="col">Date</th>
+                                        <th class="light" scope="col">Actions</th>
+                                        <th class="light" scope="col">Status</th>
+                                        <th class="light" scope="col">Update Progress</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (let count=0; count < data.length; count++) { %>
+
+
+
+                                        <%if (data[count].status=='closed' ) { %>
+                                            <tr class="grey">
+                                                <th class="light" scope="row">
+                                                    <%= count+1 %>
+                                                </th>
+                                                <td class="light">
+                                                    <%= data[count].name %>
+                                                </td>
+                                                <td class="light">
+                                                    <%= data[count].type %>
+                                                </td>
+                                                <td class="light">
+                                                    <%= data[count].place %>
+                                                </td>
+                                                <td class="light">
+                                                    <%= data[count].date %>
+                                                </td>
+                                                <td class="light">
+                                                    <div class="row">
+                                                        <a class="btn btn-danger btn-sm mb-1"
+                                                            href="/api/delete/<%= data[count]._id %>">Delete</a>
+                                                        <a href="/edit/<%= data[count]._id %>"
+                                                            class="btn btn-warning btn-sm ">Edit</a>
+                                                    </div>
+                                                </td>
+
+                                                </td>
+                                                <td class="light">
+                                                    <%if (data[count].status=='active' ) { %>
+                                                        <a href="" class="btn btn-success">
+                                                            <%= data[count].status %>
+                                                        </a>
+                                                        <% } %>
+                                                            <%if (data[count].status=='closed' ) { %>
+                                                                <a href="" class="btn btn-danger">
+                                                                    <%= data[count].status %>
+                                                                </a>
+                                                                <% } %>
+                                                                    <%if (data[count].status=='dispatched' ) { %>
+                                                                        <a href="" class="btn btn-warning">
+                                                                            <%= data[count].status %>
+                                                                        </a>
+                                                                        <% } %>
+                                                                            <%if (data[count].status=='new' ) { %>
+                                                                                <a href="" class="btn btn-primary">
+                                                                                    <%= data[count].status %>
+                                                                                </a>
+                                                                                <% } %>
+
+                                                </td>
+                                                <td style="margin: 10px;" class="light">
+                                                    <div class="row">
+                                                        <a class="btn btn-success btn-sm mb-1"
+                                                            href="/viewTicket/<%= data[count]._id %>">View</a>
+                                                        <a href="/ticket/<%= data[count]._id %>"
+                                                            class="btn btn-warning btn-sm ">Update progress</a>
+                                                    </div>
+                                            </tr>
+                                            <% } %>
+                                                <%if (data[count].status!='closed' ) { %>
+                                                    <tr>
+                                                        <th class="light" scope="row">
+                                                            <%= count+1 %>
+                                                        </th>
+                                                        <td class="light">
+                                                            <%= data[count].name %>
+                                                        </td>
+                                                        <td class="light">
+                                                            <%= data[count].type %>
+                                                        </td>
+                                                        <td class="light">
+                                                            <%= data[count].place %>
+                                                        </td>
+                                                        <td class="light">
+                                                            <%= data[count].date %>
+                                                        </td>
+                                                        <td class="light">
+                                                            <div class="row">
+                                                                <a class="btn btn-danger btn-sm mb-1"
+                                                                    href="/api/delete/<%= data[count]._id %>">Delete</a>
+                                                                <a href="/edit/<%= data[count]._id %>"
+                                                                    class="btn btn-warning btn-sm ">Edit</a>
+                                                            </div>
+                                                        </td>
+
+                                                        </td>
+                                                        <td class="light">
+                                                            <%if (data[count].status=='active' ) { %>
+                                                                <a href="" class="btn btn-success">
+                                                                    <%= data[count].status %>
+                                                                </a>
+                                                                <% } %>
+                                                                    <%if (data[count].status=='closed' ) { %>
+                                                                        <a href="" class="btn btn-danger">
+                                                                            <%= data[count].status %>
+                                                                        </a>
+                                                                        <% } %>
+                                                                            <%if (data[count].status=='dispatched' ) {
+                                                                                %>
+                                                                                <a href="" class="btn btn-warning">
+                                                                                    <%= data[count].status %>
+                                                                                </a>
+                                                                                <% } %>
+                                                                                    <%if (data[count].status=='new' ) {
+                                                                                        %>
+                                                                                        <a href=""
+                                                                                            class="btn btn-primary">
+                                                                                            <%= data[count].status %>
+                                                                                        </a>
+                                                                                        <% } %>
+
+                                                        </td>
+                                                        <td style="margin: 10px;" class="light">
+                                                            <div class="row">
+                                                                <a class="btn btn-success btn-sm mb-1"
+                                                                    href="/viewTicket/<%= data[count]._id %>">View</a>
+                                                                <a href="/ticket/<%= data[count]._id %>"
+                                                                    class="btn btn-warning btn-sm ">Update progress</a>
+                                                            </div>
+                                                    </tr>
+                                                    <% } %>
+                                                        <% } %>
+                                </tbody>
+                            </table>
+
+            </div>
+    </div>
+    </div>
+
+    <%- include('partials/footer'); -%>

@@ -1,0 +1,23 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('partials/navbar'); -%>
+            <form action="/api/login" method="post">
+                <h2>Login</h2>
+
+                <div class="mb-3 mt-5">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" type="email" required="true" class="form-control" id="email"
+                        aria-describedby="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p style="text-align: start; margin-top: 25px;">Don't have an account <a href="/register">create
+                        one?</a>
+                </p>
+            </form>
+
+            <%- include('partials/footer'); -%>
+    </div>

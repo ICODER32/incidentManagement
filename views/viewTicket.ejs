@@ -1,0 +1,46 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('partials/navbar'); -%>
+            <h2>Incident Details</h2>
+            <div class="card container mt-5 bg-dark" style="width: 35rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Title: <%= data.name %>
+                    </h5>
+                    <p class="card-text"> <b>Ticket Number:</b>
+                        <%= data.ticket %>
+                    </p>
+                    <p class="card-text"> <b>Description:</b>
+                        <%= data.description %>
+                    </p>
+                    <p class="card-text"> <b>Place:</b>
+                        <%= data.place %>
+                    </p>
+                    <p class="card-text"> <b>Priority:</b>
+                        <%= data.priority %>
+                    </p>
+                    <p class="card-text"> <b>Status:</b>
+                        <%= data.status %>
+                    </p>
+                    <p class="card-text"> <b>Started On:</b>
+                        <%= data.date %>
+                    </p>
+
+                    <%if (data.narrative) { %>
+                        <p class="card-text"> <b>Narrative</b>
+                        </p>
+                        <% for (let count=0; count < data.narrative.length; count++) { %>
+                            <h5>Trail <%= count+1 %>
+                            </h5>
+                            <h6>
+                                Comment: <%= data.narrative[count].narrative %>
+                            </h6>
+                            <p>Updated On: <%= data.narrative[count].date %>
+                            </p>
+                            <% } %>
+                                <% } %>
+                </div>
+
+            </div>
+            <%- include('partials/footer'); -%>
+    </div>

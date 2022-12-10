@@ -1,0 +1,33 @@
+<%- include('partials/header'); -%>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <%- include('partials/navbar'); -%>
+            <form method="post" action="/api/updateAccount">
+                <h2>Update Account</h2>
+                <input hidden type="text" name="_id" value="<%= data._id %>">
+                <div class="mb-3 mt-5">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input name="firstName" value="<%= data.firstName %>" type="text" required="true"
+                        class="form-control" id="firstName" aria-describedby="firstName">
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input name="lastName" value="<%= data.lastName %>" type="text" required="true" class="form-control"
+                        id="lastName" aria-describedby="firstName">
+                </div>
+                <div class="mb-3 ">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" value="<%= data.email %>" type="text" required="true" class="form-control"
+                        id="email" aria-describedby="email">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Confirm Password</label>
+                    <input name="password" value="<%= data.password %>" type="password" required="true"
+                        class="form-control" id="cpassword" aria-describedby="cpassword">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Now</button>
+            </form>
+
+            <%- include('partials/footer'); -%>
+    </div>
